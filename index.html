@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Happy 18th Birthday Karishma! ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f7f3ef;
-            --card-bg: #ffffff;
-            --text-main: #4a4238;
+            --bg-gradient: linear-gradient(135deg, #fbcfe8, #e9d5ff, #fed7aa);
+            --card-bg: rgba(255, 255, 255, 0.82);
+            --text-main: #4a3b4c;
             --accent-gold: #d4af37;
-            --pastel-pink: #f4e8e1;
+            --pastel-pink: #f43f5e;
+            --pastel-lavender: #8b5cf6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
+            background: var(--bg-gradient);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: var(--text-main);
             display: flex;
@@ -25,27 +32,129 @@
             align-items: center;
             min-height: 100vh;
             overflow: hidden;
+            position: relative;
         }
 
-        .container {
-            text-align: center;
-            background: var(--card-bg);
-            padding: 40px 30px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(74, 66, 56, 0.08);
-            max-width: 380px;
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating sparkles background effect */
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff, 0 0 20px #ff69b4;
+            animation: floatSparkle 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes floatSparkle {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-20px) scale(1.4); opacity: 1; }
+        }
+
+        /* Main container box */
+        .page {
+            position: absolute;
             width: 90%;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            max-width: 420px;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            padding: 35px 25px;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.2);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
-        .photo-frame {
-            width: 160px;
-            height: 160px;
+        .hidden-left {
+            opacity: 0;
+            transform: translateX(-100px) scale(0.9);
+            pointer-events: none;
+        }
+
+        .hidden-right {
+            opacity: 0;
+            transform: translateX(100px) scale(0.9);
+            pointer-events: none;
+        }
+
+        /* --- PAGE 1: Dreamy Door / Window --- */
+        .door-container {
+            width: 180px;
+            height: 240px;
             margin: 0 auto 20px auto;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(255, 117, 140, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            border: 4px solid #fff;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .door-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 117, 140, 0.6);
+        }
+
+        .door-inner {
+            text-align: center;
+            color: white;
+            padding: 10px;
+        }
+
+        .door-inner span {
+            font-size: 36px;
+            display: block;
+            margin-bottom: 8px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .door-text {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        #page1 h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: #581c87;
+            margin-bottom: 8px;
+        }
+
+        #page1 p {
+            font-size: 13.5px;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        /* --- PAGE 2: Main Birthday Page --- */
+        .photo-frame {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 15px auto;
             border-radius: 50%;
             overflow: hidden;
-            border: 3px solid var(--accent-gold);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+            border: 4px solid var(--accent-gold);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
         }
 
         .photo-frame img {
@@ -54,46 +163,120 @@
             object-fit: cover;
         }
 
-        h1 {
+        /* Foil Balloon Styled Badge */
+        .foil-balloon {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ff8c00, #ff1493);
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 8px 18px;
+            border-radius: 50px;
+            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.4);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); box-shadow: 0 6px 15px rgba(255, 140, 0, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 20px rgba(255, 20, 147, 0.6); }
+        }
+
+        #page2 h1 {
             font-family: 'Playfair Display', serif;
             font-size: 26px;
+            color: #4c1d95;
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            font-style: italic;
+            color: #e11d48;
+            margin-bottom: 15px;
             font-weight: 600;
-            color: #332c25;
+        }
+
+        .message-box {
+            font-size: 13.5px;
+            font-weight: 400;
+            line-height: 1.65;
+            color: #4b5563;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px 18px;
+            border-radius: 18px;
+            border: 1px dashed rgba(139, 92, 246, 0.3);
+            text-align: left;
+        }
+
+        .message-box p {
             margin-bottom: 10px;
         }
 
-        p {
-            font-size: 14px;
-            font-weight: 300;
-            line-height: 1.6;
-            color: #6b6053;
-            margin-bottom: 25px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: var(--pastel-pink);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            letter-spacing: 1px;
-            color: #7a685e;
-            font-weight: 500;
+        .final-line {
+            font-weight: 700;
+            color: #7c3aed;
+            text-align: center;
+            margin-top: 8px;
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="photo-frame">
-            <!-- Yahan apni photo ka exact file name likh dena -->
-            <img src="Screenshot_1-11-2026_11657_in.pinterest.com.jpeg" alt="Birthday Special">
+    <!-- Background Sparkles -->
+    <div class="sparkle" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+    <div class="sparkle" style="top: 20%; right: 20%; animation-delay: 1s;"></div>
+    <div class="sparkle" style="bottom: 15%; left: 20%; animation-delay: 2s;"></div>
+    <div class="sparkle" style="bottom: 25%; right: 15%; animation-delay: 1.5s;"></div>
+
+    <!-- PAGE 1: Dreamy Door / Window Opening -->
+    <div id="page1" class="page">
+        <h1>Hey Karishma! 🌸</h1>
+        <p>A little magical surprise is waiting just for you...</p>
+        
+        <!-- Dreamy Door Trigger -->
+        <div class="door-container" onclick="openDoor()">
+            <div class="door-inner">
+                <span>🚪✨</span>
+                <div class="door-text">Tap to Open</div>
+            </div>
         </div>
         
-        <span class="tag">SPECIAL DAY</span>
-        <h1>Happy Birthday! ✨</h1>
-        <p>Wishing you a day filled with endless joy, beautiful moments, and all the success you deserve.</p>
+        <p style="font-size: 12px; opacity: 0.7;">Touch the dreamy door above 💖</p>
     </div>
+
+    <!-- PAGE 2: Main Surprise Birthday Page -->
+    <div id="page2" class="page hidden-right">
+        <div class="photo-frame">
+            <img src="Screenshot_1-11-2026_11657_in.pinterest.com.jpeg" alt="Karishma">
+        </div>
+
+        <div class="foil-balloon">🎈 Happy 18th Birthday! 🎂</div>
+
+        <h1>Happy Birthday Karishma! ✨</h1>
+        <div class="subtitle">"The prettiest girl I have ever seen" 👑</div>
+
+        <div class="message-box">
+            <p>Dearest Karishma, wishing you the happiest 18th birthday ever! 🥳 May this milestone year bring you boundless happiness, unstoppable success, and all the gorgeous moments your heart desires. Keep shining your bright, beautiful light everywhere you go. ✨💖</p>
+            <span class="final-line">You are an absolute masterpiece, today and always. 🥂💫</span>
+        </div>
+    </div>
+
+    <script>
+        function openDoor() {
+            const page1 = document.getElementById('page1');
+            const page2 = document.getElementById('page2');
+            
+            page1.classList.add('hidden-left');
+            setTimeout(() => {
+                page1.style.display = 'none';
+                page2.classList.remove('hidden-right');
+            }, 400);
+        }
+    </script>
 
 </body>
 </html>
